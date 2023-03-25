@@ -5,8 +5,14 @@ public class Cliente implements Autenticable {
 	private String nombre;
 	private String documento;
 	private String telefono;
-	private int contraseña;
+	private AutenticacionUtil autenticador;
 
+
+	 public Cliente() {
+	        this.autenticador = new AutenticacionUtil();
+	    }
+
+	
 	public String getNombre() {
 		return nombre;
 	}
@@ -25,17 +31,16 @@ public class Cliente implements Autenticable {
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
-	@Override
-    public void setContraseña(int contraseña) {
-        this.contraseña = contraseña;
-    }
 
-    @Override
-    public boolean autenticar(int contraseña) {
-        if (this.contraseña == contraseña) {
-            return true;
-        } else {
-            return false;
-        }
-    }
+	@Override
+	public void setContraseña(int contraseña) {
+		this.autenticador.setContraseña(contraseña);
+	}
+
+	@Override
+	public boolean autenticar(int contraseña) {
+		return this.autenticador.autenticar(contraseña);
+	}
+
+ 
 }

@@ -2,24 +2,20 @@ package bytebank;
 
 public class Administrador extends Funcionario implements Autenticable{
 
-	private int contraseña;
+	private AutenticacionUtil autenticador;
 
 	public Administrador() {
-		// TODO Auto-generated constructor stub
+		this.autenticador = new AutenticacionUtil();
 	}
 
 	public void setContraseña(int contraseña) {
-		this.contraseña = contraseña; 
+		this.autenticador.setContraseña(contraseña);
 	}
+
 	
 	public boolean autenticar(int contraseña) {
-	    if (this.contraseña == contraseña) {
-	        return true;
-	    } else {
-	        return false;
-	    }
+		return this.autenticador.autenticar(contraseña);
 	}
-	
 	@Override
 	public double getBonificacion() {
 		// TODO Auto-generated method stub
