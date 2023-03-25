@@ -1,13 +1,13 @@
 package bytebank;
 
-public class Gerente extends Funcionario implements Autenticable{
+public class Administrador extends Funcionario implements Autenticable{
 
 	private int contraseña;
-	
-	public double getBonificacion() {
-		    return this.getSalario() + this.getSalario() * 0.5;		    		
-		}
-	
+
+	public Administrador() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public void setContraseña(int contraseña) {
 		this.contraseña = contraseña; 
 	}
@@ -20,6 +20,10 @@ public class Gerente extends Funcionario implements Autenticable{
 	    }
 	}
 	
-	
-	
+	@Override
+	public double getBonificacion() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }
